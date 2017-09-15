@@ -1,0 +1,116 @@
+0:concept and measurement : time space stability
+all this are sorted in mainmem --called 内排序 internal sorting
+1:insertion sort --stable
+
+array-- input
+outarr--output
+array[0]->outarr[0]
+length = array.length
+for(i++){(the step length is 1,shell sort just change this to --the number youcan change by yourself -- in shell sort you use the insertion sort but you have to modify)
+	if(array[i]> outarr[i-1])
+		outarr[i]=array[i]
+	else{
+		for(j<i){
+			compare(outarr[j],array[i])-- find which outarr[j] is bigger than array[i] and outarr[j-1] is smaller than
+			change(outarr[i])--put the outarr[i-1] in outarr[i] and the array[i] in outarr[i-1]
+		//compare and move
+		}
+
+	}
+}
+
+3,2,6,4,9,5,1
+
+2,3,4,6
+
+time:bad O(n^2)  best O(1)(wrong O(n)-- the times you compare and move the elements in the array) avg O(n^2)--about math
+space: O(n) //i was wrong  O(1) --used in the swap
+
+if not using space n ,just 1?
+just a temp;
+and array[i] copied to the temp;
+compare all the elements before i in array and move 
+
+also , using template
+template<class Record>
+input arguments: Record class[] , int n// the length of 
+
+
+2:shell sort:
+using the benefits of the insertion sort: if the array is in the best case the method is quick;and it the n is not so big-- the scale is small
+
+the thought behind the method is smaller the scale of the array and then sort it and every time use less times needed to compare and move 
+
+5,3,1
+array[i] array[i+5] ..<array[length]
+we sort these --using temp; 
+again for array[i] array[i+3] ...
+last time for array[i] i++ --> the benefit is that we smaller the scale of the problem but more times to call the insertion sort method
+
+3,2,6,4,9,5,1,3,5,7,9,11,6,8
+
+3,5,11--ok the first step done
+3,9,5,11--3,5,9,11 -- 3,2,6,4,5,5,1,3,9,7,9,11,6,8
+last step:  2,3,3,4,5,5,...
+wrong!!!!!!!!!!!!!(understanding mistake)
+
+
+time:bad O(n^2)  best O(n)
+space: O(1)
+not stable
+
+why?--step length thought; and step length decreases till =1:if i have an array not too randam but some of have been sorted,much easier
+and how can i make it happen with the scale of the problem be smaller?
+why the shell sort is not so effective?Hibbard shell(3)--key is the incresement sequence增量序列
+增量每次除以2递减
+for(de = n/2; de<=1;de = de/2)--how many times?--7,3,1(2^n -- n times){
+	for(how many pairs in one time?){
+		for(i i<length i = i+de){
+			put in an array(generate a pair) --and sort using insertion
+		}
+	}
+}
+\\wrong -- change the inside two for loops into --for(i=0 i<=de i++)(the step length is delta)
+also be careful if the last one hasnot been sorted within the loop -- about odd or even
+
+3,2,6,4,9,5,1,3,5,7,9,11,6,8 length=14
+
+7  3 and 3 2/5 6/7 4/9 9/11 5/6 1/8   compare and move --nothing changed(already been sorted)(just two numbers in one pair)
+3  3/9/5/6 2/5/7/8 6/1/9 4/3/8 --now right
+ wrong!!!!!!!!!!!!!!!!(wrong before)
+this time ,the pair has more numbers.
+1:last time:put all elements in another array and sorting by insertion
+
+very different from what i have thought what it was.it seems like you make pairs--just two numbers for each num.
+how to choose the pair by adding de/2 to the index of it each time the de/2 is smaller till 
+
+3:selection sort
+3.1 direct selection sort --choosing the smallest one and put it in the first of array and sort the left the same way
+unstable(it depends but gennerally if you swap two objects not neighbour(cross many numbers) it tends tobe unstable) space:O(1) time O(n^2)--mostly cost :compare times 
+3.2 heap selection sort
+why this heap sort can be more efficient? -- keeps more infomation in one time ,so in the long run ,itcan save a lot time.
+how to implement--get(create) and maintain the maxheap--insert/delete? how to store?
+
+tree--how to store n numbers in a tree? --basic link
+leftchild rightchild node data
+so --node --struct{}
+method:getData setData pointtotheleftchild pointtotherightchild
+
+input -- about how to go over every node?(深度 广度？)
+
+ACM --why interesting ,why have to solve those math problem? you dig toomuch just about the meaning also is a meaningless thing because you have so less exprience and knowledge to know the global view.
+
+you can name everything came out with yourself, you create them、define them and give them your idea--for example:
+
+4:bubble sort
+5:quick sort
+6:merge sort
+
+different way of thinking the implemention and value two things.
+like magic.
+
+
+
+
+
+

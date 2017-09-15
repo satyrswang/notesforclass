@@ -1,0 +1,7 @@
+版本！版本！版本！别光看百度经验，别光看安装教程！！！！
+net start mysql
+netstat -auno
+services.msc
+mysql.exe -remove
+
+
